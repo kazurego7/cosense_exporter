@@ -5,6 +5,14 @@ import { buildZip } from "./zip.ts";
 
 const handler = async (req: Request): Promise<Response> => {
   const { pathname } = new URL(req.url);
+  if (
+    req.method === "GET" && (pathname === "/" || pathname === "/index.html")
+  ) {
+    const html = await Deno.readTextFile("./index.html");
+    return new Response(html, {
+      headers: { "Content-Type": "text/html; charset=utf-8" },
+    });
+  }
   if (req.method === "POST" && pathname === "/api/preview") {
     const { project, sid } = await req.json();
     const pages = await fetchPages(project, sid);

@@ -23,8 +23,9 @@ deno task start
 (内部で `--allow-net` と `--allow-env` を付与しています)
 ```
 
-3. `POST /api/preview` または `POST /api/export` に JSON `{ project: "<id>" }`
-   を送信します。
+3. ブラウザで `http://localhost:8000/` にアクセスすると、プロジェクト ID と sid
+   を入力するフォームが表示されます。プレビューボタンで `/api/preview` を、
+   エクスポートボタンで `/api/export` を呼び出します。
    - `/api/preview` はファイルツリーとサンプル HTML を JSON で返します。
    - `/api/export` は ZIP ファイルを返します。
 

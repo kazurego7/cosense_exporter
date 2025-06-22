@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cosense Exporter</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.5/dist/tailwind.min.css"
+      rel="stylesheet"
+    >
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-emerald-500 text-white p-4">
+      <h1 class="text-xl">Cosense Exporter</h1>
+    </header>
+    <main class="max-w-lg mx-auto mt-10 bg-white rounded-2xl shadow-md p-6">
+      <label class="block">
+        プロジェクトID / URL
+        <input id="project" class="w-full border p-2 rounded mt-1" />
+      </label>
+      <label class="block mt-4">
+        sid Cookie (任意)
+        <input id="sid" class="w-full border p-2 rounded mt-1" />
+      </label>
+      <div class="mt-6 flex justify-between">
+        <button
+          id="previewBtn"
+          class="px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          プレビュー
+        </button>
+        <button
+          id="exportBtn"
+          class="px-4 py-2 bg-emerald-500 text-white rounded"
+        >
+          エクスポート
+        </button>
+      </div>
+      <pre id="result" class="mt-6 whitespace-pre-wrap"></pre>
+    </main>
+    <script>
+      async function doPreview() {
+        const project = document.getElementById("project").value;
+        const sid = document.getElementById("sid").value || undefined;
+        const res = await fetch("/api/preview", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ project, sid }),
+        });
+        const data = await res.json();
+        document.getElementById("result").textContent = JSON.stringify(
+          data,
+          null,
+          2,
+        );
+      }
+
+      async function doExport() {
+        const project = document.getElementById("project").value;
+        const sid = document.getElementById("sid").value || undefined;
+        const res = await fetch("/api/export", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ project, sid }),
+        });
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "export.zip";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      document.getElementById("previewBtn").addEventListener(
+        "click",
+        doPreview,
+      );
+      document.getElementById("exportBtn").addEventListener(
+        "click",
+        doExport,
+      );
+    </script>
+  </body>
+</html>
