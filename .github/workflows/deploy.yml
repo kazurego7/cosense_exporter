@@ -21,5 +21,6 @@ jobs:
       - run: deno task check
       - uses: denoland/deployctl@v1
         with:
-          project: cosense-exporter
+          project: namnam-cosense-exp-47
           entrypoint: server.ts
+          token: ${{ secrets.DENO_DEPLOY_ACCESS_TOKEN }}

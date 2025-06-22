@@ -4,6 +4,6 @@
     "fmt": "deno fmt",
     "lint": "deno lint",
     "check": "deno lint --ignore=docs && deno fmt --check --ignore=docs",
-    "deploy": "deployctl deploy --project=cosense-exporter server.ts"
+    "deploy": "deployctl deploy --project=namnam-cosense-exp-47 server.ts"
   }
 }
