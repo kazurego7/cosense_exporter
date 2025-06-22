@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read # ソースコードチェックアウト用
-  id-token: write # ← OIDC トークン発行を許可
+  contents: read # ã½ã¼ã¹ã³ã¼ããã§ãã¯ã¢ã¦ãç¨
+  id-token: write # â OIDC ãã¼ã¯ã³çºè¡ãè¨±å¯
 
 jobs:
   deploy:
