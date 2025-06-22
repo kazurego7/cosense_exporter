@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - run: deno task check
+      - uses: denoland/deployctl@v1
+        with:
+          project: cosense-exporter
+          entrypoint: server.ts
+          token: ${{ secrets.DENO_DEPLOY_ACCESS_TOKEN }}
