@@ -1,9 +1,10 @@
 {
+  "importMap": "./import_map.json",
   "tasks": {
-    "start": "deno run --allow-net --allow-env server.ts",
+    "start": "deno run -A main.ts",
     "fmt": "deno fmt",
     "lint": "deno lint",
     "check": "deno lint --ignore=docs && deno fmt --check --ignore=docs",
-    "deploy": "deployctl deploy --project=namnam-cosense-exp-47 server.ts"
+    "deploy": "deployctl deploy --project=namnam-cosense-exp-47 main.ts"
   }
 }

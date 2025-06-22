@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.8.0/",
+    "$std/": "https://deno.land/std@0.203.0/"
+  }
+}
