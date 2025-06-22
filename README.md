@@ -18,3 +18,25 @@ deno task start
    - `/api/export` は ZIP ファイルを返します。
 
 ※ 現時点では実データ取得は行わず、スタブレスポンスのみ返します。
+
+## 開発
+
+コードの整形と Lint をまとめて実行する `deno task check` を用意しています。
+開発時は次のコマンドでチェックできます。
+
+```bash
+deno task check
+```
+
+## デプロイ
+
+本リポジトリには Deno Deploy へ自動デプロイする GitHub Actions ワークフロー
+`deploy.yml` が含まれています。あらかじめ Deno Deploy
+でプロジェクトを作成し、GitHub リポジトリをリンクして取得したトークンを GitHub
+の Secrets に `DENO_DEPLOY_ACCESS_TOKEN` として登録してください。
+
+手動デプロイ用に `deno task deploy` も用意しました。事前に `deployctl`
+をインストールし、環境変数 `DENO_DEPLOY_ACCESS_TOKEN`
+を設定して実行してください。 また、GitHub Actions のワークフローは
+`workflow_dispatch` にも対応しているため、 リポジトリの Actions
+タブから手動で実行することも可能です。
