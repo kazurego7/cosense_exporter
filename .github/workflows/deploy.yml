@@ -22,5 +22,5 @@ jobs:
       - uses: denoland/deployctl@v1
         with:
           project: namnam-cosense-exp-47
-          entrypoint: server.ts
+          entrypoint: main.ts
           token: ${{ secrets.DENO_DEPLOY_ACCESS_TOKEN }}
