@@ -3,7 +3,7 @@
     "start": "deno run --allow-net server.ts",
     "fmt": "deno fmt",
     "lint": "deno lint",
-    "check": "deno lint && deno fmt --check",
+    "check": "deno lint --ignore=docs && deno fmt --check --ignore=docs",
     "deploy": "deployctl deploy --project=cosense-exporter server.ts"
   }
 }
