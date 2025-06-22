@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.x
+          deno-version: v2.x
       - run: deno task check
       - uses: denoland/deployctl@v1
         with:
