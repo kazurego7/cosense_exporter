@@ -36,9 +36,36 @@
           エクスポート
         </button>
       </div>
-      <pre id="result" class="mt-6 whitespace-pre-wrap"></pre>
+      <div id="previewContainer" class="mt-6">
+        <pre id="tree" class="whitespace-pre-wrap"></pre>
+        <div id="sample" class="mt-4"></div>
+      </div>
     </main>
     <script>
+      function formatTree(nodes) {
+        nodes.sort((a, b) => a.path.localeCompare(b.path));
+        const lines = [];
+        const seen = new Set();
+        for (const node of nodes) {
+          const parts = node.path.split("/").filter((p) => p);
+          let partial = "";
+          for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
+            const isDir = i < parts.length - 1 || node.type === "dir";
+            if (isDir) {
+              partial += part + "/";
+              if (!seen.has(partial)) {
+                lines.push("  ".repeat(i) + part + "/");
+                seen.add(partial);
+              }
+            } else {
+              lines.push("  ".repeat(i) + part);
+            }
+          }
+        }
+        return lines.join("\n");
+      }
+
       async function doPreview() {
         const project = document.getElementById("project").value;
         const sid = document.getElementById("sid").value || undefined;
@@ -48,11 +75,10 @@
           body: JSON.stringify({ project, sid }),
         });
         const data = await res.json();
-        document.getElementById("result").textContent = JSON.stringify(
-          data,
-          null,
-          2,
+        document.getElementById("tree").textContent = formatTree(
+          data.fileTree,
         );
+        document.getElementById("sample").innerHTML = data.sampleHtml;
       }
 
       async function doExport() {
