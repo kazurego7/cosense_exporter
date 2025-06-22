@@ -24,7 +24,7 @@ echo "依存モジュールを取得しています..." >&2
 # これによりネットワークが必要な依存を事前に取得します
 
 CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
-deno cache --cert "$CERT_FILE" server.ts
+deno cache --cert "$CERT_FILE" main.ts
 
 echo "セットアップ完了。サーバーを起動するには以下を実行してください:" >&2
 echo "  deno task start" >&2
