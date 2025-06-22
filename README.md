@@ -20,6 +20,7 @@
 
 ```bash
 deno task start
+(内部で `--allow-net` と `--allow-env` を付与しています)
 ```
 
 3. `POST /api/preview` または `POST /api/export` に JSON `{ project: "<id>" }`
