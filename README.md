@@ -29,6 +29,29 @@ deno task start
    - `/api/preview` はファイルツリーとサンプル HTML を JSON で返します。
    - `/api/export` は ZIP ファイルを返します。
 
+### `/api/preview` のレスポンス仕様
+
+```jsonc
+{
+  "fileTree": [
+    {
+      "path": "README.md",
+      "type": "file",
+      "size": 120
+    },
+    {
+      "path": "docs/",
+      "type": "dir"
+    }
+  ],
+  "sampleHtml": "<pre>...</pre>"
+}
+```
+
+`fileTree` は各ファイル・ディレクトリのパスと種別、ファイルの場合はサイズ
+（バイト）を含む配列です。`sampleHtml` には README.md の内容を HTML 化した
+プレビューが入ります。
+
 ※ 現時点では実データ取得は行わず、スタブレスポンスのみ返します。
 
 ## 開発
