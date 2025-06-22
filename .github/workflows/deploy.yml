@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read # ã½ã¼ã¹ã³ã¼ããã§ãã¯ã¢ã¦ãç¨
-  id-token: write # â OIDC ãã¼ã¯ã³çºè¡ãè¨±å¯
+  contents: read # allow GitHub to read repository contents
+  id-token: write # required for authentication with Deno Deploy
 
 jobs:
   deploy:
