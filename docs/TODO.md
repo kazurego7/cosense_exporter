@@ -1,7 +1,7 @@
 # Cosense Export TODO（階層番号付き）
 
 ## 0. インターフェース確定
-- [ ] **0.1** `/api/preview` のレスポンス仕様を README に記載
+- [x] **0.1** `/api/preview` のレスポンス仕様を README に記載
 - [x] **0.2** KV 履歴レコードスキーマを README に記載
 
 ## 1. 基盤移行（Fresh + React）
