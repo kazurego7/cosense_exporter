@@ -75,3 +75,19 @@ deno task check
 を設定して実行してください。 また、GitHub Actions のワークフローは
 `workflow_dispatch` にも対応しているため、 リポジトリの Actions
 タブから手動で実行することも可能です。
+
+## KV 履歴レコードスキーマ
+
+エクスポート履歴は Deno KV に保存されます。キーと値の構造は次の通りです。
+
+| Key パターン  | 値                                         | TTL  |
+| ------------- | ------------------------------------------ | ---- |
+| `hist:{uuid}` | `{ id, project, status, size, createdAt }` | 30日 |
+
+各フィールドの概要:
+
+- `id`: 履歴レコードの UUID (キーにも含まれる)
+- `project`: 対象プロジェクトの ID
+- `status`: エクスポート処理の状態
+- `size`: 生成された ZIP のサイズ (bytes)
+- `createdAt`: レコード登録日時
