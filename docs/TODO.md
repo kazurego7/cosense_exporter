@@ -5,7 +5,7 @@
 - [x] **0.2** KV 履歴レコードスキーマを README に記載
 
 ## 1. 基盤移行（Fresh + React）
-- [ ] **1.1** Fresh 1.8 プロジェクトへ移行（`routes/api/*.ts` へ統合）
+- [ ] ~~**1.1** Fresh 1.8 プロジェクトへ移行（`routes/api/*.ts` へ統合）~~
 - [ ] **1.2** Deno KV 初期化コードを追加
 - [ ] **1.3** React + Vite + Tailwind を scaffold（`frontend/`）
 - [ ] **1.4** 既存 HTML UI → `ExportForm.tsx` へ置き換え
