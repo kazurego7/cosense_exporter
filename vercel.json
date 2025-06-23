@@ -4,6 +4,9 @@
       "runtime": "vercel-deno@3.1.1"
     }
   },
+  "installCommand": "npm --prefix next-app install",
+  "buildCommand": "npm --prefix next-app run build",
+  "outputDirectory": "next-app/out",
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1.ts" },
     { "src": "/_next/static/(.*)", "dest": "/next-app/out/_next/static/$1" },
