@@ -10,11 +10,11 @@
 - [ ] GitHub Actions で `next build`・lint 実行
 
 ## 2. Edge Functions （Team B）
-- [ ] `/api/preview` ハンドラー実装
-- [ ] `/api/export` ハンドラー実装
+- [x] `/api/preview` ハンドラー実装
+- [x] `/api/export` ハンドラー実装
 - [ ] `cosense.ts`: Cosense API アダプター
 - [x] `markdown.ts`: Markdown 変換 + リンク書換
-- [ ] `zip.ts`: JSZip ストリーム生成
+- [x] `zip.ts`: JSZip ストリーム生成
 
 - [x] `ExportForm` コンポーネント化（既存 HTML 移行）
 - [ ] `<PreviewModal>`：ツリービュー & Markdown プレビュー
