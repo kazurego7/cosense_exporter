@@ -20,14 +20,23 @@
 ## 使い方
 
 1. 必要であれば `./setup.sh` を実行して Deno をインストールします。
-2. 下記コマンドでサーバーを起動します。
+2. `next-app` ディレクトリでフロントエンドをビルドします。
+
+```bash
+cd next-app
+npm install
+npm run build
+cd ..
+```
+
+3. 下記コマンドでサーバーを起動します。
 
 ```bash
 deno task start
 (内部で `--allow-net` と `--allow-env` を付与しています)
 ```
 
-3. ブラウザで `http://localhost:8000/` にアクセスすると、プロジェクト ID と sid
+4. ブラウザで `http://localhost:8000/` にアクセスすると、プロジェクト ID と sid
    を入力するフォームが表示されます。プレビューボタンで `/api/preview` を、
    エクスポートボタンで `/api/export` を呼び出します。
    - `/api/preview` はファイルツリーとサンプル HTML を JSON で返します。
