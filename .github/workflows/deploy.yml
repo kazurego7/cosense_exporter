@@ -14,15 +14,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: denoland/setup-deno@v2
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      # (Ã¤Â»Â»Ã¦ÂÂ) Ã¥ÂÂÃ£ÂÂÃ£ÂÂ§Ã£ÂÂÃ£ÂÂ¯Ã£ÂÂÃ£ÂÂÃ£ÂÂ«Ã£ÂÂÃ£ÂÂ¿Ã£ÂÂ¹Ã£ÂÂ¯Ã£ÂÂÃ£ÂÂÃ£ÂÂÃ£ÂÂ°Ã¥Â®ÂÃ¨Â¡Â
-            # Ã¥ÂÂÃ£ÂÂÃ£ÂÂ§Ã£ÂÂÃ£ÂÂ¯Ã£ÂÂ¨Ã£ÂÂÃ£ÂÂ©Ã£ÂÂ¼Ã£ÂÂÃ£ÂÂÃ£ÂÂÃ¨ÂÂªÃ¥ÂÂÃ¥Â®ÂÃ¨Â¡Â
-      - name: Format and check
+      - name: Format code and run checks
         run: |
           deno fmt
           deno task check
@@ -30,6 +30,6 @@ jobs:
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: namnam-cosense-exp-47  # Deno Deploy Ã¤Â¸ÂÃ£ÂÂ®Ã£ÂÂÃ£ÂÂ­Ã£ÂÂ¸Ã£ÂÂ§Ã£ÂÂ¯Ã£ÂÂÃ¥ÂÂ
-          root: "."                   # Ã£ÂÂªÃ£ÂÂÃ£ÂÂ¸Ã£ÂÂÃ£ÂÂªÃ¥ÂÂ¨Ã¤Â½ÂÃ£ÂÂÃ£ÂÂ«Ã£ÂÂ¼Ã£ÂÂÃ£ÂÂ¨Ã£ÂÂÃ£ÂÂ¦Ã¦ÂÂÃ¥Â®Â
-          entrypoint: main.ts          # Ã¥Â®ÂÃ©ÂÂÃ£ÂÂ«Ã¥Â®ÂÃ¨Â¡ÂÃ£ÂÂÃ£ÂÂÃ£ÂÂÃ£ÂÂÃ£ÂÂ¡Ã£ÂÂ¤Ã£ÂÂ«Ã£ÂÂÃ¦ÂÂÃ¥Â®Â
+          project: namnam-cosense-exp-47  # Deno Deploy project name
+          root: "."                       # Root directory for deployment bundle
+          entrypoint: main.ts              # Application entrypoint file
