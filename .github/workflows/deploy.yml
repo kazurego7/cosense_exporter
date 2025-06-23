@@ -7,8 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read # allow GitHub to read repository contents
-  id-token: write # required for authentication with Deno Deploy
+  contents: read
 
 jobs:
   deploy:
@@ -19,7 +18,11 @@ jobs:
         with:
           deno-version: v2.x
       - run: deno task check
-      - uses: denoland/deployctl@v1
+      - uses: amondnet/vercel-action@v25
         with:
-          project: namnam-cosense-exp-47
-          entrypoint: server.ts
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: .
+          vercel-args: "--prod"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
