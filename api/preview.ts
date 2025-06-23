@@ -1,5 +1,6 @@
 import { fetchPages } from "../cosense.ts";
 import { buildFileTree, FileNode } from "../file_tree.ts";
+import { toHtml } from "../markdown.ts";
 
 export const config = { runtime: "vercel-deno@3.1.1" };
 
@@ -11,6 +12,6 @@ export default async function handler(req: Request): Promise<Response> {
   const pages = await fetchPages(project, sid);
   const fileTree: FileNode[] = buildFileTree(pages);
   const readme = pages.find((p) => p.path === "README.md");
-  const sampleHtml = `<pre>${readme?.content ?? ""}</pre>`;
+  const sampleHtml = readme ? toHtml(readme.content) : "";
   return Response.json({ fileTree, sampleHtml });
 }
