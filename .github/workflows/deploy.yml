@@ -21,7 +21,11 @@ jobs:
           deno-version: v2.x
 
       # (任意) 型チェックやビルドタスクがあれば実行
-      - run: deno task check
+            # 型チェックとフォーマット自動実行
+      - name: Format and check
+        run: |
+          deno fmt
+          deno task check
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
