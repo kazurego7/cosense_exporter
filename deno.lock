@@ -1,6 +1,11 @@
 {
-  "version": "5",
+  "version": "3",
   "redirects": {
+    "https://esm.sh/@types/core-util-is@~1.0.1/index.d.ts": "https://esm.sh/@types/core-util-is@1.0.1/index.d.ts",
+    "https://esm.sh/@types/immediate@~3.2.2/index.d.ts": "https://esm.sh/@types/immediate@3.2.2/index.d.ts",
+    "https://esm.sh/@types/pako@~1.0.7/index.d.ts": "https://esm.sh/@types/pako@1.0.7/index.d.ts",
+    "https://esm.sh/@types/readable-stream@~2.3.15/index.d.ts": "https://esm.sh/@types/readable-stream@2.3.15/index.d.ts",
+    "https://esm.sh/@types/util-deprecate@~1.0.4/index.d.ts": "https://esm.sh/@types/util-deprecate@1.0.4/index.d.ts",
     "https://esm.sh/core-util-is@~1.0.0?target=denonext": "https://esm.sh/core-util-is@1.0.3?target=denonext",
     "https://esm.sh/immediate@~3.0.5?target=denonext": "https://esm.sh/immediate@3.0.6?target=denonext",
     "https://esm.sh/isarray@~1.0.0?target=denonext": "https://esm.sh/isarray@1.0.0?target=denonext",
@@ -30,6 +35,7 @@
     "https://deno.land/std@0.203.0/async/delay.ts": "a6142eb44cdd856b645086af2b811b1fcce08ec06bb7d50969e6a872ee9b8659",
     "https://deno.land/std@0.203.0/http/server.ts": "1b2403b3c544c0624ad23e8ca4e05877e65380d9e0d75d04957432d65c3d5f41",
     "https://deno.land/x/jszip@0.11.0/mod.ts": "5661ddc18e9ac9c07e3c5d2483bc912a7022b6af0d784bb7b05035973e640ba1",
+    "https://deno.land/x/jszip@0.11.0/types.ts": "1528d1279fbb64dd118c371331c641a3a5eff2b594336fb38a7659cf4c53b2d1",
     "https://esm.sh/core-util-is@1.0.3/denonext/core-util-is.mjs": "cfcf1ae63d56751cbe4b3b90b90b7eea577c5380c4adc272ddea4b7db2bdbbf2",
     "https://esm.sh/core-util-is@1.0.3?target=denonext": "6c72958f8a1c8f42016b48c984a0f3d799ea1e0cd321f499fec0bf8db916c17f",
     "https://esm.sh/immediate@3.0.6/denonext/immediate.mjs": "7148ba33cb905f7aca49affbacfa6a8257cd6b89e8c3c7c728d2d0387b4cce29",
