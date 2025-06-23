@@ -20,8 +20,8 @@ jobs:
         with:
           deno-version: v2.x
 
-      # (任意) 型チェックやビルドタスクがあれば実行
-            # 型チェックとフォーマット自動実行
+      # (ä»»æ) åãã§ãã¯ããã«ãã¿ã¹ã¯ãããã°å®è¡
+            # åãã§ãã¯ã¨ãã©ã¼ãããèªåå®è¡
       - name: Format and check
         run: |
           deno fmt
@@ -30,6 +30,6 @@ jobs:
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: namnam-cosense-exp-47  # Deno Deploy 上のプロジェクト名
-          root: "."                   # リポジトリ全体をルートとして指定
-          entrypoint: main.ts          # 実際に実行したいファイルを指定
+          project: namnam-cosense-exp-47  # Deno Deploy ä¸ã®ãã­ã¸ã§ã¯ãå
+          root: "."                   # ãªãã¸ããªå¨ä½ãã«ã¼ãã¨ãã¦æå®
+          entrypoint: main.ts          # å®éã«å®è¡ããããã¡ã¤ã«ãæå®
