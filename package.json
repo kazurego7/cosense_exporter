@@ -1,0 +1,10 @@
+{
+  "name": "cosense-exporter-root",
+  "private": true,
+  "scripts": {
+    "vercel-build": "npm --prefix next-app install && npm --prefix next-app run build"
+  },
+  "dependencies": {
+    "next": "15.3.4"
+  }
+}
