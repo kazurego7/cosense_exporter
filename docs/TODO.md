@@ -5,7 +5,7 @@
 - [ ] ~~KV 履歴レコードスキーマを README に記載~~ ※履歴機能撤廃
 
 ## 1. 基盤セットアップ （Team A）
-- [ ] Next.js (App Router) プロジェクト作成
+- [x] Next.js (App Router) プロジェクト作成
 - [ ] TailwindCSS + Framer Motion 導入
 - [ ] GitHub Actions で `next build`・lint 実行
 
