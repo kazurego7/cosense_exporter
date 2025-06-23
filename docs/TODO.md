@@ -23,8 +23,8 @@
 
 - [x] `ExportForm` コンポーネント化（既存 HTML 移行）
 - [x] `<PreviewModal>`：ツリービュー & Markdown プレビュー
-- [ ] `<SettingsModal>`：ローカル設定モーダル
-- [ ] `<ErrorToast>`：エラーコード別トースト表示
+- [x] `<SettingsModal>`：ローカル設定モーダル
+- [x] `<ErrorToast>`：エラーコード別トースト表示
 
 ## 4. 統合 & テスト（並列可）
 
