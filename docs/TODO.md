@@ -8,8 +8,8 @@
 ## 1. 基盤セットアップ （Team A）
 
 - [x] Next.js (App Router) プロジェクト作成
-- [ ] TailwindCSS + Framer Motion 導入
-- [ ] GitHub Actions で `next build`・lint 実行
+- [x] TailwindCSS + Framer Motion 導入
+- [x] GitHub Actions で `next build`・lint 実行
 
 ## 2. Edge Functions （Team B）
 
