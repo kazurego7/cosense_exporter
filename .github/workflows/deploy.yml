@@ -7,19 +7,25 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read # allow GitHub to read repository contents
-  id-token: write # required for authentication with Deno Deploy
+  contents: read   # allow GitHub to read repository contents
+  id-token: write  # required for OIDC authentication with Deno Deploy
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
+
+      # (任意) 型チェックやビルドタスクがあれば実行
       - run: deno task check
-      - uses: denoland/deployctl@v1
+
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
         with:
-          project: namnam-cosense-exp-47
-          entrypoint: main.ts
+          project: namnam-cosense-exp-47  # Deno Deploy 上のプロジェクト名
+          root: "."                   # リポジトリ全体をルートとして指定
+          entrypoint: main.ts          # 実際に実行したいファイルを指定
