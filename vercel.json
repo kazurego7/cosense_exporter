@@ -4,6 +4,7 @@
       "runtime": "vercel-deno@3.1.1"
     }
   },
+  "rootDirectory": "next-app",
   "installCommand": "npm --prefix next-app install",
   "buildCommand": "npm --prefix next-app run build",
   "outputDirectory": "next-app/out",
