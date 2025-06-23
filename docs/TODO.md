@@ -13,7 +13,7 @@
 - [ ] `/api/preview` ハンドラー実装
 - [ ] `/api/export` ハンドラー実装
 - [ ] `cosense.ts`: Cosense API アダプター
-- [ ] `markdown.ts`: Markdown 変換 + リンク書換
+- [x] `markdown.ts`: Markdown 変換 + リンク書換
 - [ ] `zip.ts`: JSZip ストリーム生成
 
 - [x] `ExportForm` コンポーネント化（既存 HTML 移行）
