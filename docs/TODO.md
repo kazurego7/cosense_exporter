@@ -16,8 +16,7 @@
 - [ ] `markdown.ts`: Markdown 変換 + リンク書換
 - [ ] `zip.ts`: JSZip ストリーム生成
 
-## 3. フロントエンド （Team C）
-- [ ] `ExportForm` コンポーネント化（既存 HTML 移行）
+- [x] `ExportForm` コンポーネント化（既存 HTML 移行）
 - [ ] `<PreviewModal>`：ツリービュー & Markdown プレビュー
 - [ ] `<SettingsModal>`：ローカル設定モーダル
 - [ ] `<ErrorToast>`：エラーコード別トースト表示
