@@ -7,7 +7,7 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1.ts" },
     { "src": "/_next/static/(.*)", "dest": "/next-app/out/_next/static/$1" },
-    { "src": "/(.*)", "dest": "/next-app/out/$1" },
-    { "src": "/(.*)", "dest": "/next-app/out/index.html" }
+    { "src": "/", "dest": "/next-app/out/index.html" },
+    { "src": "/(.*)", "dest": "/next-app/out/$1" }
   ]
 }
