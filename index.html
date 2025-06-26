@@ -66,8 +66,19 @@
         return lines.join("\n");
       }
 
+      function normalizeProject(input) {
+        try {
+          const url = new URL(input);
+          const [project] = url.pathname.split("/").filter(Boolean);
+          return project || input;
+        } catch {
+          return input;
+        }
+      }
+
       async function doPreview() {
-        const project = document.getElementById("project").value;
+        const raw = document.getElementById("project").value;
+        const project = normalizeProject(raw);
         const sid = document.getElementById("sid").value || undefined;
         const res = await fetch("/api/preview", {
           method: "POST",
@@ -82,7 +93,8 @@
       }
 
       async function doExport() {
-        const project = document.getElementById("project").value;
+        const raw = document.getElementById("project").value;
+        const project = normalizeProject(raw);
         const sid = document.getElementById("sid").value || undefined;
         const res = await fetch("/api/export", {
           method: "POST",

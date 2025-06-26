@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.203.0/http/server.ts";
 import { contentType } from "https://deno.land/std@0.203.0/media_types/mod.ts";
 import { fetchPages } from "./cosense.ts";
 import { buildFileTree, FileNode } from "./file_tree.ts";
-import { streamZip } from "./zip.ts";
+import { buildZip } from "./zip.ts";
 
 const handler = async (req: Request): Promise<Response> => {
   const { pathname } = new URL(req.url);
@@ -43,8 +43,8 @@ const handler = async (req: Request): Promise<Response> => {
   if (req.method === "POST" && pathname === "/api/export") {
     const { project, sid } = await req.json();
     const pages = await fetchPages(project, sid);
-    const stream = streamZip(pages);
-    return new Response(stream, {
+    const data = await buildZip(pages);
+    return new Response(data, {
       headers: {
         "Content-Type": "application/zip",
         "Content-Disposition": "attachment; filename=export.zip",

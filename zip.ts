@@ -8,9 +8,9 @@ export async function buildZip(pages: Page[]): Promise<Uint8Array> {
   const zip = new JSZip();
   for (const page of pages) {
     if (page.binary) {
-      zip.addFile(page.path, page.binary);
+      zip.file(page.path, page.binary);
     } else {
-      zip.addFile(page.path, page.content);
+      zip.file(page.path, page.content);
     }
   }
   return await zip.generateAsync({ type: "uint8array" });
@@ -23,9 +23,9 @@ export function streamZip(pages: Page[]): ReadableStream<Uint8Array> {
   const zip = new JSZip();
   for (const page of pages) {
     if (page.binary) {
-      zip.addFile(page.path, page.binary);
+      zip.file(page.path, page.binary);
     } else {
-      zip.addFile(page.path, page.content);
+      zip.file(page.path, page.content);
     }
   }
   return new ReadableStream<Uint8Array>({

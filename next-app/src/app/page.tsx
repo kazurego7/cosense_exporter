@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ExportForm from "../components/ExportForm";
 import PreviewModal from "../components/PreviewModal";
 import type { FileNode } from "../lib/types";
+import { normalizeProject } from "../lib/utils";
 
 export default function Home() {
   const [preview, setPreview] = useState<
@@ -14,20 +15,22 @@ export default function Home() {
   >(null);
 
   async function handlePreview(project: string, sid?: string) {
+    const normalized = normalizeProject(project);
     const res = await fetch("/api/preview", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ project, sid }),
+      body: JSON.stringify({ project: normalized, sid }),
     });
     const data = await res.json();
     setPreview({ fileTree: data.fileTree, sampleHtml: data.sampleHtml });
   }
 
   async function handleExport(project: string, sid?: string) {
+    const normalized = normalizeProject(project);
     const res = await fetch("/api/export", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ project, sid }),
+      body: JSON.stringify({ project: normalized, sid }),
     });
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
