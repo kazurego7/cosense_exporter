@@ -51,3 +51,11 @@ from the creators of Next.js.
 Check out our
 [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
 for more details.
+
+## E2E テスト
+
+Playwright を使用しています。以下のコマンドでテストを実行できます。
+
+```bash
+npm run test:e2e
+```
