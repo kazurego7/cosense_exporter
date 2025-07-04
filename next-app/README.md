@@ -59,3 +59,9 @@ Playwright を使用しています。以下のコマンドでテストを実行
 ```bash
 npm run test:e2e
 ```
+
+初回実行時には Playwright のブラウザを事前にダウンロードしてください。
+
+```bash
+npx playwright install
+```
