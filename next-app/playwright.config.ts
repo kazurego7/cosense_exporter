@@ -4,12 +4,12 @@ export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
   webServer: {
-    command: 'npm run build && npx serve@latest out -l 3000',
-    port: 3000,
+    command: 'sh -c "npm run build && cd .. && deno run -A server.ts"',
+    port: 8000,
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:8000',
   },
   projects: [
     {
