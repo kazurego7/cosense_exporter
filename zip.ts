@@ -1,4 +1,4 @@
-import JSZip from "npm:jszip@3.7.1";
+import { JSZip } from "https://deno.land/x/jszip@0.11.0/mod.ts";
 import type { Page } from "./cosense.ts";
 
 /**
