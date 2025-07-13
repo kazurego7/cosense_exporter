@@ -20,6 +20,14 @@ npm install
 npm --prefix next-app install
 ```
 
+## ビルド
+
+Next.js アプリと API をまとめてビルドするには以下を実行します。
+
+```bash
+npx vercel build
+```
+
 ## ローカル開発
 
 本番と同じビルド手順で起動するため、Vercel CLI を利用します。
