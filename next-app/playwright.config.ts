@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
   webServer: {
-    command: 'sh -c "npm run build && cd .. && deno run -A server.ts"',
+    command: 'npx vercel dev --listen 8000',
     port: 8000,
     reuseExistingServer: !process.env.CI,
   },

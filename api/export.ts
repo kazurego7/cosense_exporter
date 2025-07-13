@@ -1,19 +1,23 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { fetchPages } from "../cosense.ts";
-import { streamZip } from "../zip.ts";
+import { buildZip } from "../zip.ts";
 
-export const config = { runtime: "vercel-deno@3.1.1" };
-
-export default async function handler(req: Request): Promise<Response> {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse,
+): Promise<void> {
   if (req.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+    res.status(405).send("Method Not Allowed");
+    return;
   }
-  const { project, sid } = await req.json();
+  const { project, sid } =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
   const pages = await fetchPages(project, sid);
-  const stream = streamZip(pages);
-  return new Response(stream, {
-    headers: {
-      "Content-Type": "application/zip",
-      "Content-Disposition": "attachment; filename=export.zip",
-    },
-  });
+  const data = await buildZip(pages);
+  res.setHeader("Content-Type", "application/zip");
+  res.setHeader(
+    "Content-Disposition",
+    "attachment; filename=export.zip",
+  );
+  res.status(200).send(Buffer.from(data));
 }
