@@ -1,4 +1,4 @@
-import type { Page } from "./cosense.ts";
+import type { Page } from "./cosense";
 
 export interface FileNode {
   path: string;

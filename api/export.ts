@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { fetchPages } from "../cosense.ts";
-import { buildZip } from "../zip.ts";
+import { fetchPages } from "../cosense";
+import { buildZip } from "../zip";
 
 export default async function handler(
   req: VercelRequest,

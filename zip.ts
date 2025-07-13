@@ -1,5 +1,5 @@
 import JSZip from "jszip";
-import type { Page } from "./cosense.ts";
+import type { Page } from "./cosense";
 
 /**
  * ページ配列から ZIP バイト列を生成するヘルパー。

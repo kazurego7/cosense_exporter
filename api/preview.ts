@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { fetchPages } from "../cosense.ts";
-import { buildFileTree, FileNode } from "../file_tree.ts";
-import { toHtml } from "../markdown.ts";
+import { fetchPages } from "../cosense";
+import { buildFileTree, FileNode } from "../file_tree";
+import { toHtml } from "../markdown";
 
 export default async function handler(
   req: VercelRequest,
