@@ -1,9 +1,0 @@
-{
-  "tasks": {
-    "start": "deno run --allow-net --allow-env server.ts",
-    "fmt": "deno fmt",
-    "lint": "deno lint",
-    "check": "deno lint --ignore=docs,next-app && deno fmt --check --ignore=docs,next-app",
-    "deploy": "vercel deploy --prod"
-  }
-}

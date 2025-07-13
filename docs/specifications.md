@@ -15,7 +15,7 @@
 ```
 
 * **フロント**: **Next.js (App Router) + TailwindCSS + Framer Motion**
-* **バックエンド**: **Vercel Edge Functions**（Deno runtime）
+* **バックエンド**: **Vercel Edge Functions**（Node.js runtime）
 * **データストア**: なし（履歴機能を削除）
 
 ---
