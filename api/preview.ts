@@ -1,17 +1,21 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { fetchPages } from "../cosense.ts";
 import { buildFileTree, FileNode } from "../file_tree.ts";
 import { toHtml } from "../markdown.ts";
 
-export const config = { runtime: "vercel-deno@3.1.1" };
-
-export default async function handler(req: Request): Promise<Response> {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse,
+): Promise<void> {
   if (req.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+    res.status(405).send("Method Not Allowed");
+    return;
   }
-  const { project, sid } = await req.json();
+  const { project, sid } =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
   const pages = await fetchPages(project, sid);
   const fileTree: FileNode[] = buildFileTree(pages);
   const readme = pages.find((p) => p.path === "README.md");
   const sampleHtml = readme ? toHtml(readme.content) : "";
-  return Response.json({ fileTree, sampleHtml });
+  res.status(200).json({ fileTree, sampleHtml });
 }

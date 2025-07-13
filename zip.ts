@@ -1,4 +1,4 @@
-import JSZip from "npm:jszip@3.7.1";
+import JSZip from "jszip";
 import type { Page } from "./cosense.ts";
 
 /**
