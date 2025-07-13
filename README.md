@@ -44,3 +44,16 @@ Vercel プロジェクトに紐づいていれば、次のコマンドでデプ�
 vercel deploy --prod
 ```
 
+## E2E テスト
+
+Playwright を利用したエンドツーエンドテストを `tests/` ディレクトリに配置しています。
+ブラウザをインストールした上で次のコマンドを実行してください。
+
+```bash
+npm --prefix next-app install
+npx --prefix next-app playwright install
+npx --prefix next-app playwright test --config next-app/playwright.config.ts
+```
+
+テスト実行時には `npm run dev` が自動で起動し、`http://localhost:3000` でアプリが提供されます。
+

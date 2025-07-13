@@ -8,15 +8,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      working-directory: ./next-app
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
-          cache-dependency-path: ./next-app/package-lock.json
+          cache-dependency-path: |-
+            package-lock.json
+            next-app/package-lock.json
       - run: npm ci
-      - run: npm run lint
-      - run: npm run build
+      - run: npm --prefix next-app ci
+      - run: npm --prefix next-app run lint
+      - run: npm --prefix next-app run build
+      - run: npx --prefix next-app playwright install
+      - run: npx --prefix next-app playwright test --config next-app/playwright.config.ts
