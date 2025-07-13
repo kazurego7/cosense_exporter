@@ -21,5 +21,5 @@ jobs:
       - run: npm --prefix next-app ci
       - run: npm --prefix next-app run lint
       - run: npm --prefix next-app run build
-      - run: npx playwright install
-      - run: npx playwright test
+      - run: npx --prefix next-app playwright install
+      - run: npx --prefix next-app playwright test --config next-app/playwright.config.ts

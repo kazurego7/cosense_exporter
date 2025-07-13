@@ -51,8 +51,8 @@ Playwright を利用したエンドツーエンドテストを `tests/` ディ�
 
 ```bash
 npm --prefix next-app install
-npx playwright install
-npx playwright test
+npx --prefix next-app playwright install
+npx --prefix next-app playwright test --config next-app/playwright.config.ts
 ```
 
 テスト実行時には `npm run dev` が自動で起動し、`http://localhost:3000` でアプリが提供されます。
