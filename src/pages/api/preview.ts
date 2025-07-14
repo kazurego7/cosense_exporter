@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { fetchPages } from "../cosense";
-import { buildZip } from "../zip";
+import { fetchPages } from "../../../cosense";
+import { buildFileTree, FileNode } from "../../../file_tree";
+import { toHtml } from "../../../markdown";
 
 export default async function handler(
   req: VercelRequest,
@@ -13,11 +14,8 @@ export default async function handler(
   const { project, sid } =
     typeof req.body === "string" ? JSON.parse(req.body) : req.body;
   const pages = await fetchPages(project, sid);
-  const data = await buildZip(pages);
-  res.setHeader("Content-Type", "application/zip");
-  res.setHeader(
-    "Content-Disposition",
-    "attachment; filename=export.zip",
-  );
-  res.status(200).send(Buffer.from(data));
+  const fileTree: FileNode[] = buildFileTree(pages);
+  const readme = pages.find((p) => p.path === "README.md");
+  const sampleHtml = readme ? toHtml(readme.content) : "";
+  res.status(200).json({ fileTree, sampleHtml });
 }
