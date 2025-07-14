@@ -14,12 +14,9 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
-          cache-dependency-path: |-
-            package-lock.json
-            next-app/package-lock.json
+          cache-dependency-path: package-lock.json
       - run: npm ci
-      - run: npm --prefix next-app ci
-      - run: npm --prefix next-app run lint
-      - run: npm --prefix next-app run build
-      - run: npx --prefix next-app playwright install
-      - run: npx --prefix next-app playwright test --config next-app/playwright.config.ts
+      - run: npm run lint
+      - run: npm run build
+      - run: npx playwright install
+      - run: npx playwright test --config playwright.config.ts

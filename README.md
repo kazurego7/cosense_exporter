@@ -17,7 +17,6 @@ Node.js のバージョンは `.nvmrc` と `package.json` の `engines` セク�
 nvm install   # 初回のみ
 nvm use
 npm install
-npm --prefix next-app install
 ```
 
 ## ビルド
@@ -50,9 +49,9 @@ Playwright を利用したエンドツーエンドテストを `tests/` ディ�
 ブラウザをインストールした上で次のコマンドを実行してください。
 
 ```bash
-npm --prefix next-app install
-npx --prefix next-app playwright install
-npx --prefix next-app playwright test --config next-app/playwright.config.ts
+npm install
+npx playwright install
+npx playwright test --config playwright.config.ts
 ```
 
 テスト実行時には `npm run dev` が自動で起動し、`http://localhost:3000` でアプリが提供されます。
