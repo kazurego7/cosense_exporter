@@ -1,13 +1,8 @@
 {
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "@vercel/node@5.3.5"
-    }
-  },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1.ts" },
-    { "src": "/_next/static/(.*)", "dest": "/next-app/out/_next/static/$1" },
-    { "src": "/(.*)", "dest": "/next-app/out/$1" },
-    { "src": "/(.*)", "dest": "/next-app/out/index.html" }
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/_next/static/(.*)", "dest": "/.next/static/$1" },
+    { "src": "/(.*)", "dest": "/.next/$1" },
+    { "src": "/(.*)", "dest": "/.next/index.html" }
   ]
 }
