@@ -1,14 +1,33 @@
 {
-  "name": "cosense-exporter-root",
+  "name": "cosense-exporter",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "vercel-build": "rm -rf .next && npm --prefix next-app install --include=dev && npm --prefix next-app run build && cp -r next-app/.next .next",
-    "dev": "vercel dev"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "vercel-build": "next build"
   },
   "dependencies": {
-    "@vercel/node": "5.3.5",
+    "@tailwindcss/postcss": "^4",
+    "framer-motion": "^12.19.1",
     "jszip": "^3.10.1",
-    "next": "15.3.4"
+    "next": "15.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@vercel/node": "5.3.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "@playwright/test": "^1.41.2"
   },
   "engines": {
     "node": "20.x"
